@@ -4,7 +4,7 @@
       - python3
       - gcc
       - python3-devel
-    state: present
+    state: latest
 
 - name: invoke app_pre_setup task 
   include_tasks:

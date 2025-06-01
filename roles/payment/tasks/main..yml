@@ -1,4 +1,4 @@
-- name: invoke pyhton role
+- name: invoke python role
   include_role:
     name: common
     tasks_from: python.yml
