@@ -8,7 +8,7 @@
 
 - name: include app_pre_setup task from common 
   include_tasks:
-    name: app_pre_setup.yml
+    file: app_pre_setup.yml
 
 - name: npm install 
   shell: npm install
