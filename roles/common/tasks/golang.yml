@@ -5,7 +5,7 @@
 
 - name: invoke app_pre_setup task in common
   invoke_tasks:
-    name: app_pre_setup.yml
+    file: app_pre_setup.yml
 
 - name: build the golang component 
   shell: go mod init {{ app_name }} ; go get ; go build
