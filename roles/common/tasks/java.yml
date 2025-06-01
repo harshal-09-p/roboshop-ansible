@@ -5,7 +5,7 @@
 
 - name: include app_pre_setup task 
   include_tasks:
-    name: app_pre_setup.yml
+    file: app_pre_setup.yml
 
 - name: mvn clean package and mv jar file
   shell: mvn clean package ; mv target/{{ app_name }}-1.0.jar {{ app_name }}.jar
