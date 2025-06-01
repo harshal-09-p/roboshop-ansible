@@ -1,9 +1,9 @@
-- name: invoke python role
-  include_role:
+- name: Run Python
+  ansible.builtin.include_role:
     name: common
-    tasks_from: python.yml
+    tasks_from: python
 
-- name: invoke systemd_setup role
-  include_role:
+- name: Run systemd_setup
+  ansible.builtin.include_role:
     name: common
-    tasks_from: systemd_setup.yml
+    tasks_from: systemd_setup
