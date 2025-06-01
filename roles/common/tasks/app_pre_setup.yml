@@ -1,0 +1,27 @@
+- name: add roboshop user 
+  user:
+    name: roboshop
+    
+- name: copy {{ app_name }} file 
+  template:
+    src: "{{ app_name }}.service"
+    dest: /etc/systemd/system/{{ app_name }}.service
+
+- name: remove the app directory 
+  file:
+    path: /app
+    state: absent 
+
+- name: create the app directory 
+  file:
+    path: /app
+    state: directory
+
+- name: copy files from remote location
+  unarchive: 
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{ app_name }}-v3.zip
+    dest: /app
+    remote_src: yes
+
+
+

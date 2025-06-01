@@ -1,0 +1,23 @@
+- name: include jave from common role 
+  include_role:
+    name: common
+    tasks_from: java.yml
+
+- name: install mysql
+  dnf:
+    name: mysql
+    state: latest
+
+- name: update the schema files 
+  shell:  mysql -h mysql-dev.harshaldevops.online -uroot -pRoboShop@1 < /app/db/schema.sql
+
+- name: update the schema files 
+  shell:  mysql -h mysql-dev.harshaldevops.online -uroot -pRoboShop@1 < /app/db/app-user.sql
+
+- name: update the schema files 
+  shell:  mysql -h mysql-dev.harshaldevops.online -uroot -pRoboShop@1 < /app/db/master-data.sql
+
+- name: include systemd_setup
+  include_role:
+    name: common
+    tasks_from: systemd_setup.yml

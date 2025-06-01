@@ -1,0 +1,25 @@
+- name: redis disable and enable
+  shell: dnf module disable redis -y ; dnf module enable redis:7 -y
+
+- name: install redis 
+  dnf:
+    name: redis
+    state: latest
+
+- name: replace the redis config listener address
+  replace:
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: replace the redis config protected mode
+  replace:
+    path: /etc/redis/redis.conf
+    regexp: 'protected-mode yes'
+    replace: 'protected-mode no'
+
+- name: enable and start redis systemd_service
+  systemd_service:
+    name: redis
+    state: started
+    enabled: true

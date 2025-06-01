@@ -1,0 +1,16 @@
+- name: install python 
+  dnf:
+    name:
+      - python3
+      - gcc
+      - python3-devel
+    state: present
+
+- name: invoke app_pre_setup task 
+  include_tasks:
+    name: app_pre_setup.yml
+
+- name: install pip3 
+  shell: pip3 install -r requirements.txt
+  args:
+    chdir: /app

@@ -1,0 +1,6 @@
+- name: systemd setup for {{ app_name }}
+  systemd_service:
+    name: "{{ app_name }}"
+    state: started
+    enabled: true
+    daemon-reload: true

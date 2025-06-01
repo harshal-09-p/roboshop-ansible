@@ -1,0 +1,16 @@
+- name: nodejs  enable and disable
+  shell: dnf module disable nodejs -y ; dnf module enable nodejs:20 -y
+
+- name: nodejs install module 
+  dnf:
+    name: nodejs
+    state: latest
+
+- name: include app_pre_setup task from common 
+  include_tasks:
+    name: app_pre_setup.yml
+
+- name: npm install 
+  shell: npm install
+  args:
+    chdir: /app

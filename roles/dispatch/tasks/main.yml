@@ -1,0 +1,9 @@
+- name: invoke golang common role
+  include_role:
+    name: common
+    tasks_from: golang.yml
+
+- name: invoke systemd_setup common role
+  include_role:
+    name: common
+    tasks_from: systemd_setup.yml

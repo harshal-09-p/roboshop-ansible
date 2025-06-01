@@ -1,0 +1,9 @@
+- name: unclude and install nodejs role 
+  include_role:
+    name: common
+    tasks_from: nodejs.yml
+
+- name: unclude and install ndoejs role 
+  include_role:
+    name: common
+    tasks_from: systemd_setup.yml

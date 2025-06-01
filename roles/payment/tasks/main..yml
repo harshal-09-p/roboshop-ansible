@@ -1,0 +1,9 @@
+- name: invoke pyhton role
+  include_role:
+    name: common
+    tasks_from: python.yml
+
+- name: invoke systemd_setup role
+  include_role:
+    name: common
+    tasks_from: systemd_setup.yml
