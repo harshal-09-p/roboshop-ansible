@@ -4,7 +4,7 @@
     state: latest
 
 - name: mysql enable and start systemctl
-  systemd-service:
+  systemd_service:
     name: mysqld
     state: started
     enabled: true 
