@@ -4,7 +4,7 @@
     state: latest
 
 - name: invoke app_pre_setup task in common
-  invoke_tasks:
+  include_tasks:
     file: app_pre_setup.yml
 
 - name: build the golang component 
