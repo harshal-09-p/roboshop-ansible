@@ -16,7 +16,7 @@
 #   shell:  mysql -h mysql-dev.harshaldevops.online -uroot -pRoboShop@1 < /app/db/master-data.sql
 
 - name: update data to DB
-  shell:  mysql -h mysql-dev.harshaldevops.online -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+  shell:  mysql -h mysql-dev.harshaldevops.online -u{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:username token={{ token }} url=http://vault.harshaldevops.online:8200') }} -p{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:password token={{ token }} url=http://vault.harshaldevops.online:8200') }} < /app/db/{{ item }}.sql
   loop:
     - schema
     - app-user
