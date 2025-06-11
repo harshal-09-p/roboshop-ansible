@@ -23,8 +23,8 @@
       DB_TYPE=: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_TYPE token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:APP_GIT_URL token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
-      DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_USER token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
-      DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_PASS token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:username token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:password token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       SCHEMA_FILE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:SCHEMA_FILE token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
 
 - name: run shipping container - create schema
@@ -36,8 +36,8 @@
       DB_TYPE=: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_TYPE token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:APP_GIT_URL token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
-      DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_USER token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
-      DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_PASS token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:username token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:password token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       SCHEMA_FILE: "db/{{ item }}.sql"
   loop:
     - schema
