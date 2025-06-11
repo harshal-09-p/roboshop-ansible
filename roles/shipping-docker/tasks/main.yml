@@ -26,7 +26,7 @@
       DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:username token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:password token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       SCHEMA_FILE: "db/{{ item }}.sql"
-    loop:
-      - schema
-      - app-user
-      - master-data
+  loop:
+    - schema
+    - app-user
+    - master-data
