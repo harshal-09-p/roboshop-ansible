@@ -11,7 +11,7 @@
     ports:
       - "8080:8080"
     env:
-      CART_ENDPOINT=: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:CART_ENDPOINT token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      CART_ENDPOINT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:CART_ENDPOINT token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
 
 - name: run shipping container - create schema
@@ -20,7 +20,7 @@
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     state: started
     env:
-      DB_TYPE=: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_TYPE token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_TYPE token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:APP_GIT_URL token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:DB_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:username token={{ token }} url=http://vault.harshaldevops.online:8200') }}"

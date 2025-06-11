@@ -11,7 +11,7 @@
     ports:
       - "8080:8080"
     env:
-      CART_HOST=: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:CART_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
+      CART_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:CART_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       CART_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:CART_PORT token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       USER_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:USER_HOST token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
       USER_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ env }}/data/{{ app_name }}:USER_PORT token={{ token }} url=http://vault.harshaldevops.online:8200') }}"
